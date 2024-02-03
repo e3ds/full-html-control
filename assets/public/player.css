@@ -1,0 +1,692 @@
+/*Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.*/
+
+:root {
+	/*Using colour scheme https://color.adobe.com/TD-Colors---Option-3-color-theme-10394433/*/
+	--colour1: #2B3A42;
+	--colour2: #3F5765;
+	--colour3: #BDD4DE;
+	--colour4: #EFEFEF;
+	--colour5: #FF5035;
+	--color1: #1c477f;
+
+	--buttonFont: Helvetica;
+	--inputFont: Helvetica;
+
+	--fullscreenButtonWidth: 30px;
+	--fullscreenButtonHeight: 30px;
+
+}
+
+@font-face {
+	font-family: 'Spantaran Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Spantaran Regular'), url('../Spantaran.woff') format('woff');
+}
+
+body {
+	margin: 0px;
+}
+
+#playerUI {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	/*top: 0;
+	left: 0;*/
+	z-index: 10;
+	top: 0px;
+}
+
+#player {
+	height: 100% !important;
+	width: 100% !important;
+}
+
+#rotateOverlay {
+	position: absolute;
+	/*top: 0;
+	left: 0;*/
+	z-index: 101;
+	background-image: url("../images/TURN-ON.jpg");
+	background-color: #172027;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#statsContainer {
+	background-color: rgba(0, 0, 0, 0.8);
+	text-align: left;
+	display: block;
+}
+
+#stats {
+	font-size: 14px;
+	font-weight: bold;
+	padding: 6px;
+	color: lime;
+}
+
+
+#queueNumberText {
+	position: absolute;
+	font-weight: bolder;
+	font-size: 3.2em;
+}
+
+canvas {
+	image-rendering: crisp-edges;
+	position: absolute;
+}
+
+video {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#player {
+	width: 1280px;
+	height: 720px;
+	position: relative;
+	background-color: white;
+	/* background: url('/assets/images/queue-screen-eagle.png'); */
+}
+
+#overlay {
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	/* future proofing */
+	border-bottom-left-radius: 5px;
+	/* future proofing */
+	-khtml-border-bottom-right-radius: 5px;
+	/* for old Konqueror browsers */
+	-khtml-border-bottom-left-radius: 5px;
+	/* for old Konqueror browsers */
+
+	-webkit-touch-callout: none;
+	/* iOS Safari */
+	-webkit-user-select: none;
+	/* Safari */
+	-khtml-user-select: none;
+	/* Konqueror HTML */
+	-moz-user-select: none;
+	/* Firefox */
+	-ms-user-select: none;
+	/* Internet Explorer/Edge */
+	user-select: none;
+	/* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
+	position: absolute;
+	padding: 4px;
+	top: 0;
+	/* right: 2%; */
+	right: 15px;
+	z-index: 9;
+	border: 2px solid var(--colour4);
+	border-top-width: 0px;
+
+	border: 1px solid #fff;
+	margin-top: 15px;
+}
+
+.overlay {
+	background-color: var(--colour2);
+	font-family: var(--buttonFont);
+	font-weight: lighter;
+	color: var(--colour4);
+}
+
+#overlayButton:hover {
+	cursor: pointer;
+}
+
+#overlayButton {
+	text-align: right;
+	font-size: 40px;
+
+	border-bottom: 1px solid #fff;
+}
+
+#overlaySettings {
+	width: 300px;
+	padding: 4px;
+	display: none;
+}
+
+#qualityStatus {
+	float: left;
+	font-size: 40px;
+	padding-right: 4px;
+}
+
+.greyStatus {
+	color: grey;
+}
+
+.limeStatus {
+	color: lime;
+}
+
+.orangeStatus {
+	color: orange;
+}
+
+.redStatus {
+	color: red;
+}
+
+#PsControloverlay {
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	/* future proofing */
+	border-bottom-left-radius: 5px;
+	/* future proofing */
+	-khtml-border-bottom-right-radius: 5px;
+	/* for old Konqueror browsers */
+	-khtml-border-bottom-left-radius: 5px;
+	/* for old Konqueror browsers */
+
+	-webkit-touch-callout: none;
+	/* iOS Safari */
+	-webkit-user-select: none;
+	/* Safari */
+	-khtml-user-select: none;
+	/* Konqueror HTML */
+	-moz-user-select: none;
+	/* Firefox */
+	-ms-user-select: none;
+	/* Internet Explorer/Edge */
+	user-select: none;
+	/* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
+	position: absolute;
+	padding: 4px;
+	top: 0;
+	right: 2%;
+	z-index: 100;
+	border: 2px solid var(--colour4);
+	border-top-width: 0px;
+}
+
+.PsControloverlay {
+	background-color: var(--colour2);
+	font-family: var(--buttonFont);
+	font-weight: lighter;
+	color: var(--colour4);
+}
+
+#PsControloverlayButton:hover {
+	cursor: pointer;
+}
+
+#PsControloverlayButton {
+	text-align: right;
+	font-size: 40px;
+}
+
+#PsControloverlaySettings {
+	width: 300px;
+	padding: 4px;
+	display: none;
+}
+
+
+
+#videoMessageOverlay {
+	z-index: 20;
+	color: var(--colour4);
+	;
+	font-size: 1.8em;
+	position: absolute;
+	margin: auto;
+	font-family: var(--inputFont);
+	;
+	width: 100%;
+}
+
+#videoPlayOverlay {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	gap: 20px;
+
+	background: white;
+	z-index: 30;
+	position: absolute;
+	color: var(--color1);
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+#videoPlayOverlay img {
+	max-width: 10em;
+	max-height: 10em;
+}
+
+/* State for element to be clickable */
+.clickableState {
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	cursor: pointer;
+}
+
+/* State for element to show text, this is for informational use*/
+.textDisplayState {
+	display: flex;
+}
+
+/* State to hide overlay, WebRTC communication is in progress and or is playing */
+.hiddenState {
+	display: none;
+}
+
+#playButton {
+	display: inline-block;
+	height: auto;
+}
+
+img#playButton {
+	/* max-width: 241px; */
+	/*width: 10%;*/
+	max-width: 20%;
+	/* width: 60%; */
+	margin: auto;
+	top: 10%;
+	position: relative;
+}
+
+#UIInteraction {
+	position: fixed;
+}
+
+#UIInteractionButtonBoundary {
+	padding: 2px;
+}
+
+#UIInteractionButton {
+	cursor: pointer;
+}
+
+#hiddenInput {
+	position: absolute;
+
+	font-size: 40px;
+}
+
+#hiddenInput222 {
+	position: absolute;
+	left: -10%;
+	/* Although invisible, push off-screen to prevent user interaction. */
+	width: 0px;
+	opacity: 0;
+}
+
+
+#editTextButton {
+	position: absolute;
+	height: 40px;
+	width: 40px;
+}
+
+.settings-text {
+	color: var(--colour4);
+	vertical-align: middle;
+	font-size: 18px;
+	font-weight: normal;
+	display: inline-block;
+}
+
+.overlay-button {
+	line-height: 1.1;
+	padding: 1px 6px;
+}
+
+.btn-overlay {
+	float: right;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.btn-flat {
+	background: var(--colour4);
+	border: 2px solid var(--colour5);
+	font-weight: bold;
+	cursor: pointer;
+	font-family: var(--buttonFont);
+	font-size: 10px;
+	color: var(--colour5);
+	border-radius: 5px;
+	height: 17px;
+}
+
+.btn-flat:disabled {
+	background: var(--colour4);
+	border-color: var(--colour3);
+	color: var(--colour3);
+	cursor: default;
+}
+
+.btn-flat:active {
+	border-color: var(--colour2);
+	color: var(--colour2);
+}
+
+.btn-flat:focus {
+	outline: none;
+}
+
+/*** Toggle Switch styles ***/
+.tgl-switch {
+	float: right;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.tgl-switch .tgl {
+	display: none;
+}
+
+.tgl,
+.tgl:after,
+.tgl:before,
+.tgl *,
+.tgl *:after,
+.tgl *:before,
+.tgl+.tgl-slider {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.tgl::-moz-selection,
+.tgl:after::-moz-selection,
+.tgl:before::-moz-selection,
+.tgl *::-moz-selection,
+.tgl *:after::-moz-selection,
+.tgl *:before::-moz-selection,
+.tgl+.tgl-slider::-moz-selection {
+	background: none;
+}
+
+.tgl::selection,
+.tgl:after::selection,
+.tgl:before::selection,
+.tgl *::selection,
+.tgl *:after::selection,
+.tgl *:before::selection,
+.tgl+.tgl-slider::selection {
+	background: none;
+}
+
+.tgl+.tgl-slider {
+	outline: 0;
+	display: block;
+	width: 40px;
+	height: 18px;
+	position: relative;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.tgl+.tgl-slider:after,
+.tgl+.tgl-slider:before {
+	position: relative;
+	display: block;
+	content: "";
+	width: 50%;
+	height: 100%;
+}
+
+.tgl+.tgl-slider:after {
+	left: 0;
+}
+
+.tgl+.tgl-slider:before {
+	display: none;
+}
+
+.tgl-flat+.tgl-slider {
+	padding: 2px;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+	background: #fff;
+	border: 3px solid var(--colour4);
+	border-radius: 2em;
+}
+
+.tgl-flat+.tgl-slider:after {
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+	background: var(--colour4);
+	content: "";
+	border-radius: 1em;
+}
+
+.tgl-flat:checked+.tgl-slider {
+	border: 3px solid var(--colour5);
+}
+
+.tgl-flat:checked+.tgl-slider:after {
+	left: 50%;
+	background: var(--colour5);
+}
+
+/*** Toggle Switch styles ***/
+#ck-fullscreen {
+	width: var(--fullscreenButtonWidth);
+	height: var(--fullscreenButtonHeight);
+	float: right;
+	right: 4px;
+	margin: 2px;
+	padding: 2px;
+	position: relative;
+
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	z-index: 100;
+
+}
+
+#ck-fullscreen:hover {
+	background-color: #434c53;
+}
+
+.fullscreen-btn {
+	width: 100%;
+	height: 100%;
+}
+
+/************************************************************/
+/* Player full screen css (different event for each browser */
+/************************************************************/
+#player:-webkit-full-screen {
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#player:-moz-full-screen {
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#player:-ms-fullscreen {
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#player:fullscreen {
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#player.fullscreen {
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	position: fixed;
+
+	top: 0px;
+	left: 0px;
+}
+
+#player.fullscreen #configuration {
+	position: fixed;
+}
+
+#FillWindow {
+	display: none;
+}
+
+
+/* =====css modified by Abir for voip only===== */
+.settings-text {
+	margin-bottom: 6px;
+}
+
+#KickOthers {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.btn-overlay,
+.tgl-switch {
+	float: unset;
+}
+
+#EncoderSettings {
+	margin: 15px 0;
+}
+
+#EncoderSettings>.settings-text,
+#WebRTCSettings> .settings-text,
+#Stats .settings-text {
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.encoder__step{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
+.encoder__step label {
+	font-size: 16px !important;
+}
+
+.encoder__step select,
+.encoder__step input {
+	width: 90px;
+	height: 20px;
+	/* padding: 3px; */
+	text-align: center;
+}
+
+#encoderParamsContainer .encoder__step .settings-text {
+	margin-bottom: 0;
+}
+
+.tgl-flat+.tgl-slider {
+	border-color: #774a4a;
+}
+
+.tgl-flat+.tgl-slider:after {
+	background: #774a4a;
+}
+
+.apply__btn input, #LatencyTest button {
+	width: 100%;
+	font-size: 17px;
+	font-weight: 600;
+	color: #3F5765;
+	padding: 6px;
+	border-radius: 3px;
+	outline: none;
+	border: none;
+	margin-top: 6px;
+	cursor: pointer;
+}
+
+#WebRTCSettings{
+	margin-bottom: 20px;
+}
+
+#ShowFPS, #MatchViewportResolution{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 6px;
+}
+
+#ShowFPS .settings-text,
+ #MatchViewportResolution .settings-text{
+	margin-bottom: 0;
+}
+
+#Stats{
+	margin: 20px 0 8px;
+}
+
+#stats{
+	padding: 10px;
+}
+
+#stats > div{
+	font-size: 14px;
+	line-height: 24px;
+}
+
+#LatencyTest > button{
+	margin-bottom: 5px;
+	margin-top: 0;
+}
+
+/* =====css modified by Abir for voip only===== */
+
+/* =====css modified for by Abir for Skip Button===== */
+#skip_video{
+	justify-content: space-between;
+	gap: 10px;
+	align-items: center;
+	font-weight: 700;
+	/* background: transparent !important;
+	border: 4px solid #3f5765 !important; */
+	/* color: #3f5765 !important; */
+	cursor: pointer;
+	padding: 10px 30px !important;
+}
+/* =====css modified for by Abir for Skip Button===== */
