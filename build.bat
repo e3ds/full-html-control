@@ -1,1 +1,9 @@
-npm run build && xcopy /s /e /i ".\dist\streaming-ui\browser\*" ".\dist" && rmdir /s /q ".\dist\streaming-ui"
+@echo off
+pushd %~dp0
+
+title Build
+
+npm run build
+
+popd
+pause

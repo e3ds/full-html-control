@@ -1,6 +1,6 @@
 @echo off
 
-cd dist/
+cd build/
 
 title Token Server
 
