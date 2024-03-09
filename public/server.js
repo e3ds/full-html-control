@@ -8,15 +8,15 @@ const port = 3000;
 
 const tokenExpiryDuration = 60000
 // Replace this with your API key
-const apiKey = "U2FsdGVkX1/cfYq4w0pOcKaKSr+NvtqffU0GpyiOmBaK+Eh23Cz0raVsCO8l1xjZBX/eeL/OUBzZ45AM3M5mb1zpKWeMS4uUV4pKq+7qGMs0cTkjqfyrigm5NUiDLqHlznD1ycD/qIMl4onUZI8VaKev2LLuFtYCZGLF7HwproU="  // collect from https://account.eagle3dstreaming.com/api-keys-management
+const apiKey = "Your api Key"  // collect from https://account.eagle3dstreaming.com/api-keys-management
 // Replace this with your username
-var clientUserName = "AnupE3DS";
+var clientUserName = "Your username";
 var streamingAppInfo = {
     "core": {
         "domain": "connector.eagle3dstreaming.com",
-        "userName": "demo",
-        "appName": "E3DSFeaturesTemplate",
-        "configurationName": "E3DS-Iframe-Demo"
+        "userName": clientUserName,
+        "appName": "Your app name",
+        "configurationName": "Your configuration name"
     }
 }
 
