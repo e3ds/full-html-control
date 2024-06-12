@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "full-html-control",
+      "script": "tokenServer.js",
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "time": true,
+      "env": {
+      }
+    }
+  ]
+}
+
