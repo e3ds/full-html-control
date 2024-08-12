@@ -1,0 +1,7 @@
+{
+    "apiKey" : "your api key",  // collect from https://account.eagle3dstreaming.com/api-keys-management
+    "tokenExpiryDuration" : 60000,
+    "clientUserName": "your user name",
+    "app": "your app name",
+    "config": "your config name"
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css">
+<link type="text/css" rel="stylesheet" href="assets/public/virtualKeyboard.css">
+<link type="text/css" rel="stylesheet" href="assets/public/player.css">
+<link type="text/css" rel="stylesheet" href="assets/public/fonts.css">
+<link type="text/css" rel="stylesheet" href="assets/public/style.css">
+<link type="text/css" rel="stylesheet" href="assets/public/robin.css">
+<link type="text/css" rel="stylesheet" href="assets/public/afk.css">
+<link type="text/css" rel="stylesheet" href="assets/public/robin-slider.css"/>
+
+<script type="text/javascript" src= "https://e3ds.github.io/public-release/e3dsCore.min.js"></script>
+<script type="text/javascript" src="scripts_demo/postLoadScripts.js"></script>
+
+</head>
+<body>
+  <div id="playerUI"  style="display: block;" >
+      <div id="player"  style="display: block;">
+          <video id="streamingVideo" playsinline >      
+            <source src="" type="video/mp4">
+          </video>
+      </div>
+      <div id="loaderStep1" class="loader" style="display: none;">
+        <div id="prgoressScreenLogo1" style="display: none"  class="loader-header">
+           <img  style="display: none;max-width: 55%;margin: auto;" id="prgoressScreenLogo1img" src="assets/images/default_logo_image.png" alt="">
+        </div>
+        <div style="display: block;" class="loader-content">
+           <img     style="display: none;"   id="prgoressScreenLoadingimg" src="assets/images/eagle_logo_alpha2.gif" alt="">
+        </div>
+        <br>
+        <label  style="display: none;color: black;"  id="Title_AcquiringProgresss" for="file">Acquiring App:</label>
+        <progress style="display: none;" id="AcquiringProgress" value="0" max="100">  </progress>
+        <label style="display: none;color: black;"  id="Title_PreparingProgress" for="file">Preparing App:</label>
+        <progress style="display: none;" id="PreparingProgress" value="0" max="100"> 32% </progress>
+        <label style="display: none;color: black;" id="Title_LunchingProgress" for="file">Starting App:</label>
+        <progress style="display: none;" id="LunchingProgress" value="0" max="100"> 32% </progress>
+        <div class="loader-footer"    style="display: none;" >Build Loading...</div>
+     </div>
+     <div id="loaderStep2" class="loader" style="display: none;">
+        <div id="playBtnScreenLogo1"  style="display: none;" class="loader-header">
+           <img style="display: none;" id="playBtnScreenLogo1img" src="assets/images/UE4_Logo.png" alt="">
+        </div>
+        <div class="loader-content" id="clickToPlay">
+           <img id="playBtnImg" src="assets/images/Play_button2.png" class="img-play" alt="">
+        </div>
+        <div class="loader-footer"></div>
+     </div>
+  </div>
+</body>
+</html>
