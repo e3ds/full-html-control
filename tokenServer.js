@@ -103,6 +103,14 @@ app.use("/scripts_demo", express.static(path.join(__dirname, "./scripts_demo")))
 
 app.set('view engine', 'ejs'); 
 
+app.get("/error/:errorMsg",
+	function(req, res){
+		const errorMsg = req.params.errorMsg; //dynamically getting encrypted error message from url
+		const decryptedMsg = atob(errorMsg); //decrypt error message
+		res.render("custom_error", {decryptedMsg}) //rendering custom_error.ejs and passing decryptedMsg as data
+	}
+)
+
 app.get("/testToken/",
 
   function (req, res) 
