@@ -1,20 +1,20 @@
-const apiKey = "your api key"  // collect from https://account.eagle3dstreaming.com/api-keys-management 
+const apiKey = "Your API key"  // collect from https://account.eagle3dstreaming.com/api-keys-management 
 const tokenExpiryDuration = 60000
 var clientUserName = "your user name";
 var streamingAppInfo = 
 						{
 						  "core": {
-							"domain": "your domain",
+							"domain": "Your domain", // connector.eagle3dstreaming.com if you don't have a dedicated system
 							"userName": clientUserName,
-							"appName": "your app name",
-							"configurationName": "your config name"
 						  }
 						}
 				
 
-function GenerateStreamingSessionToken(res,indexCP_dist=false) 
+function GenerateStreamingSessionToken(res,indexCP_dist=false, appName, configurationName) 
 {
-	
+	streamingAppInfo.core.appName = appName;
+	streamingAppInfo.core.configurationName = configurationName;
+
 	const axios = require("axios");	
 	
 	axios.post(
@@ -103,28 +103,23 @@ app.use("/scripts_demo", express.static(path.join(__dirname, "./scripts_demo")))
 
 app.set('view engine', 'ejs'); 
 
-app.get("/testToken/",
+app.get("/error/:errorMsg",
+	function(req, res){
+		const errorMsg = req.params.errorMsg; //dynamically getting encrypted error message from url
+		const decryptedMsg = atob(errorMsg); //decrypt error message
+		res.render("custom_error", {decryptedMsg}) //rendering custom_error.ejs and passing decryptedMsg as data
+	}
+)
+
+app.get("/:appName/:configurationName",
 
   function (req, res) 
   {
 	 
+		const appName = req.params.appName; //dynamically receiving app name from url
+		const configurationName = req.params.configurationName; //dynamically receiving config name from url
 		
-		
-		 GenerateStreamingSessionToken(res,false) 
-		
-		
-  }
-);
-
-
-app.get("/testToken/indexCP_dist",
-
-  function (req, res) 
-  {
-	
-		
-		
-		 GenerateStreamingSessionToken(res,true) 
+		 GenerateStreamingSessionToken(res,false, appName, configurationName) 
 		
 		
   }
