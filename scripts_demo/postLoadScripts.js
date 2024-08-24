@@ -1,8 +1,15 @@
 
 
 window.onload = async function(){
-    const response = await fetch('../config.json');
-    const {clientUserName, tokenExpiryDuration, apiKey, app, config} = await response.json();
+    
+
+    const apiKey= "your streaming api key";//collect your streaming api key from here https://account.eagle3dstreaming.com/streaming-api-keys-management
+    const domain= "connector.eagle3dstreaming.com";
+    const tokenExpiryDuration= 60000;
+    const clientUserName= "your username";
+    const app= "your app name";
+    const config= "your configuration name";
+
 
     fetch(
         "https://token.eaglepixelstreaming.com/api/v1/token/create",
@@ -11,7 +18,7 @@ window.onload = async function(){
             body: JSON.stringify({
             "object": {
                 "core": {
-                "domain": "connector.eagle3dstreaming.com",
+                "domain": domain,
                 "userName": clientUserName,
                 "appName": app,
                 "configurationName": config
