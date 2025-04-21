@@ -167,7 +167,7 @@ input#resoulbar[type="range"]::-moz-range-thumb {
   background: #fff;
 } */
 
-.e3ds_bottom_panel .panelInput__div,
+#settings .panelInput__div,
  .qlInput__div  {
   padding: 0 17px;
   background: transparent linear-gradient(90deg, #000000 0%, #000000 100%) 0% 0% no-repeat padding-box;
@@ -196,7 +196,6 @@ input#resoulbar[type="range"]::-moz-range-thumb {
 .panelInput__div, .qlInput__div  {
   position: absolute;
   top: 0px;
-  left: 0;
   width: 100%;
   height: 48px;
   transition: 0.25s ease-in-out;
@@ -211,7 +210,16 @@ input#resoulbar[type="range"]::-moz-range-thumb {
   justify-content: center;
   align-items: center;
 }
-
+.panelInput__div{
+  left: 0px;
+}
+.qlInput__div{
+  width: 200px;
+  /* left: 30px; */
+  right: 197px;
+  top: -117px;
+  transform: rotate(-90deg);
+}
 
 #resolution__level{
   display: flex;
@@ -230,14 +238,14 @@ input#resoulbar[type="range"]::-moz-range-thumb {
 }
 
 .show__qlDiv{
-  top: 0;
+  /* top: 0; */
 }
 
 
 .qlVisible{
   opacity: 1;
   visibility: visible;
-  top: -48px;
+  right: 250px;
 }
 
 .e3ds_bottom_panel_controls,
@@ -475,7 +483,7 @@ span#e3ds_control_toggle_iconObj{
     position: absolute;
     left: unset;
     right: 0;
-    display: flex !important;
+    display: flex ;
     height: unset;
     flex-direction: column;
 
@@ -553,3 +561,98 @@ div#resulRangeValue,
 }
 
 
+#settings{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+#settings-items{
+  display: flex;
+  align-items: center;
+  background-color: black;
+  border: none;
+  border-radius: 10px;
+  width: 0;
+  overflow-x: hidden;
+  transition: width 0.5s linear;
+}
+
+.settings-item{
+  background-color: transparent;
+  width: 48px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.settings-item img{
+  width: 48px;
+  height: 48px;
+}
+
+#galleryImg{
+  height: 22px;
+  width: 22px;
+}
+
+#qualityIcon{
+  height: 22px;
+  width: 22px;
+}
+#settings-icon{
+  padding: 13px;
+  cursor: pointer;
+  position: relative;
+}
+
+.recorded-video-wrap{
+  position: absolute;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+	z-index: 9;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.download-video{
+  color: white;
+  text-decoration: inherit;
+  background-color: #4981F2;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.download-wrap{
+  margin-top: 5px !important;
+}
+
+.cancel-download{
+  color: white;
+  text-decoration: inherit;
+  background-color: red;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+@keyframes blink {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+.blinkImg{
+  animation: blink 1s;
+  animation-iteration-count: infinite;
+}

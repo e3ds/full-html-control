@@ -3,12 +3,12 @@
 window.onload = async function(){
     
 
-    const apiKey= "your streaming api key";//collect your streaming api key from here https://account.eagle3dstreaming.com/streaming-api-keys-management
+    const apiKey= "U2FsdGVkX1+95Fk76+iDeMmJiJc0TXEhyJWlSXBFJJuO9kUDP1z/YImgj+LLtdvy7plV6sRdNaHluVfgNlKox9Z0bSEGIc7v3XmOf64ksVY2XwfEDa1z+Ct/y3Ft7gxnFFjyZpDmqDU6BuxnzW3jAQ5i5obEPcBVpjK3IgMZ8ds=";//collect your streaming api key from here https://account.eagle3dstreaming.com/streaming-api-keys-management
     const domain= "connector.eagle3dstreaming.com";
     const tokenExpiryDuration= 60000;
-    const clientUserName= "your username";
-    const app= "your app name";
-    const config= "your configuration name";
+    const clientUserName= "demo";
+    const app= "demo";
+    const config= "epicFE";
 
 
     fetch(

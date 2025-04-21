@@ -7,6 +7,8 @@
 /* VoIP */
 
 li.list-group-item {
+    display: flex;
+    justify-content: space-between;
     color: white;
     list-style: none;
     border-bottom: 1px solid #999;
@@ -15,16 +17,21 @@ li.list-group-item {
     margin-right: 16px;
     text-transform: uppercase;
     padding-top: 12px;
+    align-items: center;
 }
 
 span.badge {
-    display: none;
+    /* display: none; */
 }
 
 #roster {
     padding-left: 0px;
     margin: 8px 0px;
 }
+
+#roster::-webkit-scrollbar {
+    display: none;
+  }
 
 #roster-tile-container {
     width: 240px;
@@ -33,4 +40,50 @@ span.badge {
     bottom: 95px;
     background: #000000cc 0% 0% no-repeat padding-box;
     overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+
+#popupForVoipUsername{
+    z-index: 99;
+    padding: 0 10px;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+    background: black;
+}
+
+#popupForVoipUsername .pass__form {
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    background: black;
+    /* border: 1px solid #4981F2; */
+    border-radius: 10px;
+    font-family: "Product Sans", Sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 10px 10px 95px -1px rgba(195,180,180,0.75);
+    -webkit-box-shadow: 10px 10px 95px -1px rgba(195,180,180,0.75);
+    -moz-box-shadow: 10px 10px 95px -1px rgba(195,180,180,0.75);
+ }
+
+.pass__form input#voipUserName{
+    background: rgb(44, 44, 44);
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.disabled{
+    cursor: not-allowed !important;
 }

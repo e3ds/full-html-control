@@ -1,17 +1,8 @@
-const e3ds_control_toggle = document.querySelector('.e3ds_control_toggle')
 const e3ds_control_toggle_left = document.querySelector('.e3ds_control_toggle_left')
-const e3ds_control_toggle_icon = document.querySelector('.e3ds_control_toggle_icon')
 const e3ds_control_toggle_icon_left = document.querySelector('.e3ds_control_toggle_icon_left')
-const e3ds_bottom_panel_controls = document.querySelector('.e3ds_bottom_panel_controls')
 const e3ds_bottom_panel_controls_left = document.querySelector('.e3ds_bottom_panel_controls_left')
-let e3ds_controls_open_state = true
 let e3ds_controls_left_bottom_open_state = true;
 
-function hidemenuAtStart() {
-  if(e3ds_bottom_panel_controls)
-	e3ds_bottom_panel_controls.style.right = `-321px`
-  e3ds_controls_open_state = false
-}
 
 function openState(panelPosition = "right") 
 {
@@ -26,25 +17,10 @@ function openState(panelPosition = "right")
     e3ds_controls_left_bottom_open_state = true
     return;
   }
-  
-  if(e3ds_bottom_panel_controls)
-  {
-    e3ds_bottom_panel_controls.style.right = '0px'
-    
-    // const mediaQuery = window.matchMedia('(max-width: 575px)');
-    // if (mediaQuery.matches) {
-    //   e3ds_bottom_panel_controls.style.right = '40px';
-    // }
-  }
-  
-  if(e3ds_control_toggle_icon)
-	  e3ds_control_toggle_icon.style.transform = 'rotate(0deg)'
-  e3ds_controls_open_state = true
 }
 
 function closeState(controls_width, panelPosition = "right") {
   console.log("Closing ", panelPosition, controls_width);
-   controls_width = e3ds_bottom_panel_controls.offsetWidth;
   if (panelPosition === "left") {
     // console.log("panel closing", panelPosition)
 	if(e3ds_bottom_panel_controls_left)
@@ -52,24 +28,16 @@ function closeState(controls_width, panelPosition = "right") {
     e3ds_controls_left_bottom_open_state = false;
     return;
   }
-
-  if(e3ds_bottom_panel_controls)e3ds_bottom_panel_controls.style.right = `-${321}px`
-  e3ds_controls_open_state = false
 }
 
 function toggleState(panelPosition = "right") {
 
-  if(newDragging){
-   // return;
-  }
 
   let handlePosition = "right";
   console.log("Toggling", panelPosition);
   let shouldOpen = true;
   if (panelPosition === "left") {
     shouldOpen = e3ds_controls_left_bottom_open_state;
-  } else {
-    shouldOpen = e3ds_controls_open_state;
   }
   if (shouldOpen) {
     closeState(controls_width, panelPosition);
@@ -79,26 +47,12 @@ function toggleState(panelPosition = "right") {
 }
 
 
-hidemenuAtStart()
+// hidemenuAtStart()
 let controls_width = 0
-if(e3ds_bottom_panel_controls)
-	controls_width=e3ds_bottom_panel_controls.offsetWidth;
 
 
-//toggleState()
-//console.log(e3ds_control_toggle_left)
-if(e3ds_control_toggle)
-	e3ds_control_toggle.addEventListener('click', () =>{
-	  toggleState()
-	  const e3ds_control_toggle_img = document.querySelector(".e3ds_control_toggle_img")
 
-	  if(e3ds_control_toggle_img){
-		e3ds_control_toggle_img.classList.toggle("rotate__inn")
-	  }
 
-	}
-	  
-	)
 
 
 openState("left");
@@ -110,6 +64,15 @@ if(e3ds_control_toggle_left)
 	  let currentStatus = document.getElementById("voipControlPanel").style.display;
 	  if (currentStatus === "block" || currentStatus === "flex") {
 	   if(voipControlPanel)voipControlPanel.style.display = "none";
+     //close voip speaker list when slider closed
+     let roster = document.getElementById('roster');
+     if(roster){
+        roster.style.display = "none";
+     }
+     let voipSpeakerList = document.getElementById('btn-Toggle-voipSpeaker-list');
+     if(voipSpeakerList){
+        voipSpeakerList.src = "https://d35e1ftufisrhj.cloudfront.net/v1/assets/images/voipListNO.png";
+     }
 		closeState(controls_width, "left");
 	  } else {
 	   if(voipControlPanel)voipControlPanel.style.display = "flex";
@@ -180,24 +143,45 @@ if(voipControlPanel)
 //             settingBtn.style.bottom = '0px !important'
 //         }
 
-const AudioBtn = document.querySelector('.AudioBtn')
+const AudioBtn = document.querySelector('#AudioBtn')
+const infoBtn = document.querySelector('#infoBtn')
 const panelInput__div = document.querySelector('.panelInput__div')
-const AudioBtnImg = document.querySelector('.AudioBtnImg')
+const AudioBtnImg = document.querySelector('#AudioBtnImg')
 const Volumebar = document.getElementById('Volumebar')
 
 const qlControll = document.getElementById('qlControll')
 const qlInput__div = document.querySelector('.qlInput__div ')
-const galleryImg = document.querySelector('.galleryImg')
+const galleryImg = document.querySelector('#galleryImg')
 const resoulbar = document.getElementById('resoulbar')
+// const screenRecordBtn = document.getElementById('screenRecord');
+
+// if(screenRecordBtn){
+//   screenRecordBtn.addEventListener('click', function(){
+//     window.open('/screenRecorder',"_blank");
+//   })
+// }
+
+if(infoBtn){
+  infoBtn.addEventListener('click', function(){
+
+    const statsInfoExtra = document.getElementById('statsInfoExtra');
+    if(statsInfoExtra.style.display === "none" || statsInfoExtra.style.display === ""){
+      statsInfoExtra.style.display = "block";
+    }
+    else{
+      statsInfoExtra.style.display = "none";
+    }
+  })
+}
 
 if (qlControll) {
   qlControll.addEventListener('click', () => {
     qlInput__div.classList.toggle('qlVisible')
-    if (galleryImg.src.endsWith('galleryI.svg')) {
-      galleryImg.src = './assets/images/gallery2.svg'
-    } else if (galleryImg.src.endsWith('gallery2.svg')) {
-      galleryImg.src = './assets/images/galleryI.svg'
-    }
+    // if (galleryImg.src.endsWith('galleryI.svg')) {
+    //   galleryImg.src = './assets/images/gallery2.svg'
+    // } else if (galleryImg.src.endsWith('gallery2.svg')) {
+    //   galleryImg.src = './assets/images/galleryI.svg'
+    // }
   });
 }
 
@@ -209,15 +193,34 @@ if (AudioBtn)
 
 				if(AudioBtnImg.src.endsWith=('mute.svg') && panelInput__div.classList.contains('show__panelDiv'))
 				{
-										AudioBtnImg.src= '/assets/images/unmute.svg'
+										AudioBtnImg.src= 'https://d35e1ftufisrhj.cloudfront.net/v1/assets/images/unmute.svg'
 				} 
 				
 			  }
   )
 
 }
-  
-window.addEventListener('click', (e)=>{
+
+const resBtn = document.getElementById("resBtn");
+const qualityBtn = document.getElementById("qualityBtn");
+const qualitySelect = document.getElementById("qualitySelect");
+const resSelect = document.getElementById("resSelect");
+const resIcon = document.getElementById("resIcon");
+const qualityIcon = document.getElementById("qualityIcon");
+
+if(resBtn){
+  resBtn.onclick = function(){
+    resSelect.classList.toggle('hiddenSelectionDiv')
+  }
+}
+
+if(qualityBtn){
+  qualityBtn.onclick = function(){
+    qualitySelect.classList.toggle('hiddenSelectionDiv')
+  }
+}
+
+function closeVolAndResBarAndQualityAndRes(e){
   // console.log('window clicked now here')
   if(e.target !== AudioBtn && e.target !== AudioBtnImg && e.target !== panelInput__div && e.target !== Volumebar){
     if (panelInput__div)
@@ -225,7 +228,7 @@ window.addEventListener('click', (e)=>{
     // console.log('happening different things')
     if (AudioBtnImg) {
       if (AudioBtnImg.src.endsWith = ('mute.svg')) {
-        AudioBtnImg.src = './assets/images/unmute.svg'
+        AudioBtnImg.src = 'https://d35e1ftufisrhj.cloudfront.net/v1/assets/images/unmute.svg'
       }
     }
   }
@@ -234,14 +237,32 @@ window.addEventListener('click', (e)=>{
     //console.log('happening different things')
     if (qlInput__div)
       qlInput__div.classList.remove('qlVisible')
-    if (galleryImg) {
-      if (galleryImg.src.endsWith('gallery2.svg')) {
-        galleryImg.src = './assets/images/galleryI.svg'
-      }
+    // if (galleryImg) {
+    //   if (galleryImg.src.endsWith('gallery2.svg')) {
+    //     galleryImg.src = 'https://d35e1ftufisrhj.cloudfront.net/v1/assets/images/galleryI.svg'
+    //   }
+    // }
+  }
+
+  if(e.target !== resSelect && e.target !== resBtn && e.target !== resIcon){
+    resSelect.classList.add('hiddenSelectionDiv')
+  }
+  if(e.target !== qualitySelect && e.target !== qualityBtn && e.target !== qualityIcon && e.target !== qlControll && e.target !== qlInput__div && e.target !== resoulbar && e.target !== resolution__check && e.target !== resolution__level){
+    qualitySelect.classList.add('hiddenSelectionDiv')
+  }
+  const statsInfoExtra = document.getElementById("statsInfoExtra");
+  const infoBtn = document.getElementById("infoBtn");
+  const infoIcon = document.getElementById("infoIcon");
+  
+  if(e.target.parentElement != statsInfoExtra && e.target != statsInfoExtra && e.target != infoBtn && e.target != infoIcon ){
+    if(statsInfoExtra && statsInfoExtra.style.display == "block"){
+      statsInfoExtra.style.display = "none";
     }
   }
+}
   
-})
+window.addEventListener('click', closeVolAndResBarAndQualityAndRes);
+window.addEventListener('touchstart', closeVolAndResBarAndQualityAndRes);
 
 // AudioBtnImg.src = '/assets/images/mute.svg'
 
@@ -309,99 +330,81 @@ resolution__check.addEventListener('change', (e)=>{
 });
 
 
-e3ds_control_toggle.addEventListener('click', ()=>{
-  if(e3ds_bottom_panel_controls.style.right === '-321px'){
-    panelInput__div.style.opacity = '0'
-    panelInput__div.style.visibility = 'hidden'
+dragElement(document.getElementById("settings"));
 
-    qlInput__div.style.opacity = '0'
-    qlInput__div.style.visibility = 'hidden'
-  }
-
-  else{
-      panelInput__div.style.opacity = '1'
-      panelInput__div.style.visibility = 'visible'
-
-      qlInput__div.style.opacity = '1'
-      qlInput__div.style.visibility = 'visible'
-  }
-
-  return;
-})
-
-// e3ds_control_toggle.addEventListener('click', () => {
-//   const controls_width = e3ds_bottom_panel_controls.offsetWidth
-//   if (e3ds_controls_open_state) {
-//     e3ds_bottom_panel_controls.style.right = `-${controls_width}px`
-//     e3ds_control_toggle_icon.style.transform = 'rotate(180deg)'
-//     e3ds_controls_open_state = false
-//   } else {
-//     e3ds_bottom_panel_controls.style.right = '40px'
-//     e3ds_control_toggle_icon.style.transform = 'rotate(0deg)'
-//     e3ds_controls_open_state = true
-//   }
-// })
-
-dragElement(document.getElementById("e3ds_draggable"));
-var newDragging = false
-  function dragMouseDown(e) 
-  {
-    e = e || window.e;
-    newDragging = true
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+	var start,duration = 0;
+  document.getElementById('settings-icon').onmousedown = dragMouseDown;
+  document.getElementById('settings-icon').ontouchstart = dragTouchStart;
+  function dragMouseDown(e) {
+    e = e || window.event;
     e.preventDefault();
+		start = new Date();
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
-  document.onclick=null
     document.onmouseup = closeDragElement;
     // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
   }
 
-  function elementDrag(e) {
-    e = e || window.e;
+  function dragTouchStart(e) {
+    e = e || window.event;
     e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    start = new Date();
+    // get the touch position at startup:
+    var touch = e.targetTouches[0];
+    pos3 = touch.clientX;
+    pos4 = touch.clientY;
+    document.addEventListener('touchend', closeDragElement);
+    // call a function whenever the touch moves:
+    document.addEventListener('touchmove', elementDrag);
   }
 
-  function closeDragElement() 
-  {
-    // stop moving when mouse button is released:
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    duration = new Date() - start;
+    if(window.enableDraggableSettingsBtn  === "0")
+      return;
+    // calculate the new cursor position:
+    if (e.type === 'mousemove') {
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+    } else if (e.type === 'touchmove') {
+      var touch = e.targetTouches[0];
+      pos1 = pos3 - touch.clientX;
+      pos2 = pos4 - touch.clientY;
+      pos3 = touch.clientX;
+      pos4 = touch.clientY;
+    }
+    // set the element's new position:
+    elmnt.style.bottom = (window.innerHeight - elmnt.getBoundingClientRect().bottom + pos2) + "px";
+    elmnt.style.right = (window.innerWidth - elmnt.getBoundingClientRect().right + pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when the mouse button is released:
+    if (!duration) {
+      const settingItems = document.getElementById('settings-items');
+      if (settingItems.style.width === "100%") {
+        settingItems.style.width = "0px";
+        document.getElementById('settings-icon').style.transform = 'rotate(0deg)';
+        document.getElementById('settings-icon').style.transition = 'transform 0.5s';
+      } else {
+        settingItems.style.width = "100%"
+        document.getElementById('settings-icon').style.transform = 'rotate(-90deg)';
+        document.getElementById('settings-icon').style.transition = 'transform 0.5s';
+      }
+    }
+    duration = 0;
     document.onmouseup = null;
     document.onmousemove = null;
-    //document.onclick=toggleState()
-    e3ds_control_toggle.addEventListener('click', () =>
-		toggleState()
-		)
+    // Remove touch event listeners
+    document.removeEventListener('touchend', closeDragElement);
+    document.removeEventListener('touchmove', elementDrag);
   }
-
-
-function dragElement(elmnt) 
-{
-	
-	return
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "e3ds_drag_control")) 
-  {
-    // if present, the header is where you move the DIV from:
-    document.getElementById(elmnt.id + "e3ds_drag_control").onmousedown = dragMouseDown;
-    // console.log("dragging!")
-    newDragging = true
-  } 
-  else 
-  {
-    // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
-    // console.log("dragging!")
-  }
-
-
-
 }

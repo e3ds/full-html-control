@@ -434,6 +434,59 @@ a:hover {
 	font-family: "EurostileLTStd", "Roboto", sans-serif;;
 }
 
+	
+/* =====popupForinjectStreamFromEditorInfo form css start here===== */
+#popupForinjectStreamFromEditorInfo {
+		z-index: 99;
+		padding: 0 10px;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+
+	#popupForinjectStreamFromEditorInfo .pass__form {
+	   width: 100%;
+	   max-width: 350px;
+	   padding: 20px;
+	   /* border: 1px solid #4981F2; */
+	   border-radius: 10px;
+	   font-family: "Product Sans", Sans-serif;
+
+	   box-shadow: 10px 10px 95px -1px rgba(195,180,180,0.75);
+	   -webkit-box-shadow: 10px 10px 95px -1px rgba(195,180,180,0.75);
+	   -moz-box-shadow: 10px 10px 95px -1px rgba(195,180,180,0.75);
+	}
+
+
+	.pass__form .pass__input label{
+	   position: absolute;
+	   font-size: 12px;
+	   background: #fff;
+	   top: -7px;
+	   left: 12px;
+	   font-weight: 600;
+	   color: #aaa;
+	}
+
+	.pass__form input#Info4injectStreamFromEditor{
+	   width: 100%;
+	   padding: 10px;
+	   font-size: 18px;
+	   border: 1px solid #d5d5d5;
+	   border-radius: 5px;
+	   color: #333;
+	}
+
+	
+
+	
+
+	
+	
+	
 /* =====password form css start here===== */
 #popupForPasswordToStart {
 		padding: 0 10px;
@@ -452,7 +505,8 @@ a:hover {
 	   /* border: 1px solid #4981F2; */
 	   border-radius: 10px;
 	   font-family: "Product Sans", Sans-serif;
-
+	   position: fixed;
+	   bottom: 50vh;
 	   box-shadow: 10px 10px 95px -1px rgba(195,180,180,0.75);
 	   -webkit-box-shadow: 10px 10px 95px -1px rgba(195,180,180,0.75);
 	   -moz-box-shadow: 10px 10px 95px -1px rgba(195,180,180,0.75);
@@ -501,7 +555,24 @@ a:hover {
 	   transition: 0.3s ease-in-out;
 	}
 
+	.pass__form .copy__btn button{
+	   /* width: 50%; */
+	   padding: 10px;
+	   font-size: 12px;
+	   font-weight: bold;
+	   outline: none;
+	   background: #4981F2;
+	   color: #fff;
+	   border: 1px solid #4981F2;
+	   border-radius: 5px;
+	   cursor: pointer;
+	   transition: 0.3s ease-in-out;
+	}
+
 	.pass__form .pass__btn button:hover{
+	   background-color: #0756f3;
+	}
+	.pass__form .copy__btn button:hover{
 	   background-color: #0756f3;
 	}
 
@@ -545,6 +616,138 @@ a:hover {
 
 
 /* =====password form css start here===== */
+
+
+/* =====password form css start here===== */
+#popupForOnScreenKeyboard {
+		padding: 0 10px;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+
+	#popupForOnScreenKeyboard .pass__form {
+	   width: 100%;
+	   max-width: 350px;
+	   padding: 20px;
+	   /* border: 1px solid #4981F2; */
+	   border-radius: 10px;
+	   font-family: "Product Sans", Sans-serif;
+	   position: fixed;
+	   bottom: 50vh;
+	   box-shadow: 10px 10px 95px -1px rgba(195,180,180,0.75);
+	   -webkit-box-shadow: 10px 10px 95px -1px rgba(195,180,180,0.75);
+	   -moz-box-shadow: 10px 10px 95px -1px rgba(195,180,180,0.75);
+	}
+
+	.pass__form .pass__input{
+	   position: relative;
+	}
+
+	.pass__form .pass__input label{
+	   position: absolute;
+	   font-size: 12px;
+	   background: #fff;
+	   top: -7px;
+	   left: 12px;
+	   font-weight: 600;
+	   color: #aaa;
+	}
+
+	.pass__form input#UserInput{
+	   width: 100%;
+	   padding: 10px;
+	   font-size: 18px;
+	   border: 1px solid #d5d5d5;
+	   border-radius: 5px;
+	   color: #333;
+	   margin-bottom: 15px;
+	}
+
+	.pass__form .pass__btn{
+	   display: flex;
+	   gap: 15px;
+	}
+
+	.pass__form .pass__btn button{
+	   width: 50%;
+	   padding: 8px;
+	   font-size: 18px;
+	   font-weight: bold;
+	   outline: none;
+	   background: #4981F2;
+	   color: #fff;
+	   border: 1px solid #4981F2;
+	   border-radius: 5px;
+	   cursor: pointer;
+	   transition: 0.3s ease-in-out;
+	}
+
+	.pass__form .copy__btn button{
+	   /* width: 50%; */
+	   padding: 10px;
+	   font-size: 12px;
+	   font-weight: bold;
+	   outline: none;
+	   background: #4981F2;
+	   color: #fff;
+	   border: 1px solid #4981F2;
+	   border-radius: 5px;
+	   cursor: pointer;
+	   transition: 0.3s ease-in-out;
+	}
+
+	.pass__form .pass__btn button:hover{
+	   background-color: #0756f3;
+	}
+	.pass__form .copy__btn button:hover{
+	   background-color: #0756f3;
+	}
+
+	.alert__box{
+		position: absolute;
+		text-align: center;
+		left: 50%;
+		transform: translateX(-50%);
+		top: -50%;
+		padding: 10px;
+		box-shadow: 0 3px 11px #d6d6d7;
+		width: 100%;
+		max-width: 300px;
+		background: #fff;
+		transition: 0.3s ease-in-out;
+	}
+
+	.alert__box img{
+		height: 68px;
+		width: 68px;
+	}
+
+	.alert__box p{
+		font-size: 18px;
+		margin: 10px 0 18px;
+	}
+
+	.alert__box .alert__close{
+		width: 100px;
+		outline: none;
+		padding: 5px;
+		font-size: 16px;
+		font-weight: 500;
+		text-align: center;
+		color: #fff;
+		background: #4981F2;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+
+/* =====password form css start here===== */
+
 
 /* @media (orientation: landscape) and (max-width: 700px) {
 	#ck-fullscreen {
@@ -623,5 +826,135 @@ a:hover {
 	}
 }
 
+#hardwareInfo{
+	display: none;
+	position: absolute;
+	top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	z-index: 999;
+	/* height: 400px;
+	width: 900px; */
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 10px;
+  }
 
+#statsInfoExtra {
+	display: none;
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	z-index: 999;
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.8);
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 20px;
+	color: lime;
+  }
 
+#statsInfoExtra > div {
+	margin-bottom: 8px;
+}
+
+#qualitySelect, #resSelect{
+	opacity: .7;
+	position: absolute;
+	right: 150px;
+	bottom: 70px;
+	background-color: #000000;
+	color: white;
+	border-radius: 5px;
+	
+}
+
+#qualitySelect ul, #resSelect ul{
+	list-style-type: none;
+	padding-bottom: 5px;
+}
+
+#qualitySelect li, #resSelect li{
+	margin-bottom: 5px;
+	padding: 5px 100px 5px 10px;
+	cursor: pointer;
+}
+#qualitySelect li:hover, #resSelect li:hover{
+	background-color: gray;
+}
+
+.selectedQuality{
+	background-color: gray;
+}
+
+.hiddenSelectionDiv{
+	display: none;
+}
+
+#vrPopUp {
+	background: transparent;
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+}
+
+#vrPopUpForm{
+	background: #000000 url(../BlackTheme/images/bg1.jpg) no-repeat center center !important;
+}
+
+#meetingListBtn{
+	display: block;
+    height: fit-content;
+    width: fit-content;
+	margin-top: auto;
+	margin-bottom: 45px;
+	background: black;
+	cursor: pointer;
+}
+
+#meetingControlPanel{
+	margin-left: 30px;
+	flex-direction: column;
+	color: white;
+}
+
+#meetingGuestListDiv{
+	padding: 8px;
+	background: black;
+}
+
+li.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    list-style: none;
+    border-bottom: 1px solid #999;
+    padding-bottom: 12px;
+    margin-left: 16px;
+    margin-right: 16px;
+    text-transform: uppercase;
+    padding-top: 12px;
+    align-items: center;
+}
+
+li.list-group-item>div{
+	margin-left: 20px;
+}
+
+li.list-group-item>div>button{
+	background: transparent;
+	cursor: pointer;
+}
+
+li.list-group-item>div>button>img{
+	width: 24px;
+	height: 24px;
+}

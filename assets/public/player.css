@@ -14,14 +14,14 @@
 
 	--fullscreenButtonWidth: 30px;
 	--fullscreenButtonHeight: 30px;
-
+	--shake-iteration: infinite;
 }
 
 @font-face {
 	font-family: 'Spantaran Regular';
 	font-style: normal;
 	font-weight: normal;
-	src: local('Spantaran Regular'), url('../Spantaran.woff') format('woff');
+	src: local('Spantaran Regular'), url('https://d35e1ftufisrhj.cloudfront.net/v1/assets/cdn-font/Spantaran.woff') format('woff');
 }
 
 body {
@@ -45,8 +45,10 @@ body {
 
 #rotateOverlay {
 	position: absolute;
-	/*top: 0;
-	left: 0;*/
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 	z-index: 101;
 	background-image: url("../images/TURN-ON.jpg");
 	background-color: #172027;
@@ -253,6 +255,21 @@ video {
 	;
 	width: 100%;
 }
+.e3ds_control_toggle_icon {
+	position: relative;
+  }
+  
+  #networkQualityStatus {
+	font-size: 4rem;
+    position: absolute;
+    top: -7px;
+    right: 17px;
+  }
+  
+  .e3ds_control_toggle_img {
+	position: relative;
+	z-index: 1; /* Ensure the image is on top */
+  }
 
 #videoPlayOverlay {
 	display: flex;
@@ -308,6 +325,24 @@ img#playButton {
 	top: 10%;
 	position: relative;
 }
+
+.shake{
+	animation: shake .5s;
+    animation-iteration-count: var(--shake-iteration);
+}
+@keyframes shake {
+	0% { transform: translate(1px, 1px) rotate(0deg); }
+	10% { transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { transform: translate(-3px, 0px) rotate(1deg); }
+	30% { transform: translate(3px, 2px) rotate(0deg); }
+	40% { transform: translate(1px, -1px) rotate(1deg); }
+	50% { transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { transform: translate(-3px, 1px) rotate(0deg); }
+	70% { transform: translate(3px, 1px) rotate(-1deg); }
+	80% { transform: translate(-1px, -1px) rotate(1deg); }
+	90% { transform: translate(1px, 2px) rotate(0deg); }
+	100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
 
 #UIInteraction {
 	position: fixed;
@@ -689,4 +724,52 @@ img#playButton {
 	cursor: pointer;
 	padding: 10px 30px !important;
 }
+
+#editor-sidebar{
+	overflow-x: none;
+	overflow-y: scroll;
+	/* display: none; */
+	position: absolute;
+	top: 0; 
+	right: 0; 
+	width: 0; 
+	height: 100vh; 
+	/* padding: 20px; */
+	background-color: #fff; 
+	transition: width .5s;
+	z-index: 999;
+}
+
+.editor-label{
+	color: #33AEF2;
+}
+
+.editor-select{
+	width: 100%;
+    height: 30px;
+    border: 1px solid #33AEF2;
+    padding: 5px;
+    outline: none;
+}
 /* =====css modified for by Abir for Skip Button===== */
+/* @media only screen and (max-width: 576px) {
+	#networkQualityStatus{
+		font-size: 3.8rem;
+		top: -54%;
+		left: 4%;
+	}
+} */
+
+.throbbing{
+	animation: throb 1.5s infinite ease-in-out; /* Infinite throbbing animation */
+}
+
+/* Throbbing animation */
+@keyframes throb {
+	0%, 100% {
+	  transform: scale(1); /* Original size */
+	}
+	50% {
+	  transform: scale(1.2); /* Slightly larger size */
+	}
+}
