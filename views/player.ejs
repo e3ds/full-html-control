@@ -42,7 +42,28 @@
      
       <base href="/">
 	   
-	   
+	   <script type='text/javascript'>
+         var timeRecords = {};
+        var ws4queue = undefined;
+        function getCurrentDate() {
+           return new Date(Date.now()).toISOString()
+        }
+
+        function addToTimeRecords(key, value){
+           if(timeRecords){
+              timeRecords[key] = value;
+              performance.mark(key);
+           }
+           if(ws4queue != undefined && ws4queue?.readyState === WebSocket.OPEN){
+              ws4queue.send(JSON.stringify({
+                 type: "timeRecords",
+                 timeRecords,
+              }))
+           }
+        }
+      
+       addToTimeRecords("jsFileExecutionStartedAt", getCurrentDate()); 
+     </script>
       <script type="text/javascript" src="src/jquery.min.js"></script>
       <script type="text/javascript" src="src/toast-alert.js"></script>
 
