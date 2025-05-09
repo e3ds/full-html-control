@@ -8,7 +8,7 @@ const port = 3000;
 
 const tokenExpiryDuration = 60000
 // Replace this with your API key
-const apiKey = "Your api Key"  // collect from https://account.eagle3dstreaming.com/api-keys-management
+const apiKey = "Your streaming api Key"  // collect from https://account.eagle3dstreaming.com/api-keys-management
 // Replace this with your username
 var clientUserName = "Your username";
 var streamingAppInfo = {
