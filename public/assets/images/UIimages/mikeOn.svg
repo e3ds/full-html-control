@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <g id="Layer_2" data-name="Layer 2" transform="translate(0.201 0.201)">
+    <g id="mic" transform="translate(0.227 0.227)">
+      <rect id="Rectangle_8" data-name="Rectangle 8" width="26" height="26" transform="translate(-0.428 -0.428)" fill="#fff" opacity="0"/>
+      <path id="Path_14" data-name="Path 14" d="M12.23,15.749a4.23,4.23,0,0,0,4.23-4.23V6.23A4.23,4.23,0,0,0,8,6.23v5.288A4.23,4.23,0,0,0,12.23,15.749Z" transform="translate(0.342 -0.004)" fill="#fff"/>
+      <path id="Path_15" data-name="Path 15" d="M19.806,11.058a1.058,1.058,0,1,0-2.115,0,5.288,5.288,0,1,1-10.576,0,1.058,1.058,0,1,0-2.115,0,7.4,7.4,0,0,0,6.346,7.319v2.2H9.114a.941.941,0,0,0-.941.941v.233a.941.941,0,0,0,.941.941h6.578a.941.941,0,0,0,.941-.941v-.233a.941.941,0,0,0-.941-.941H13.461v-2.2A7.4,7.4,0,0,0,19.806,11.058Z" transform="translate(0.169 0.457)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+.simple-keyboard.hg-theme-01 {
+    position: fixed;
+    bottom: 0;
+    z-index: 11;
+    display: none;
+    background-color: rgba(0, 0, 0, 1);
+    font-weight: bold;
+}

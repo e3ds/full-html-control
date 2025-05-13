@@ -1,0 +1,136 @@
+/* css for loading ui */
+#videoPlayOverlay{
+    background-color: #000000;
+    color: #fff;
+    background: #000000 url(../images/loadBg.png) no-repeat center center;
+    background-size: 597px 226px;
+}
+
+#videoPlayOverlay img{
+    width: 152px;
+}
+
+#queueNumberText{
+    color: #fff !important;
+    font-size: 19px;
+    position: relative;
+    text-align: center;
+    font-weight: 400;
+    line-height: 23px;
+}
+
+.corp__title{
+	position: absolute;
+	bottom: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 19px;
+	font-weight: 200;
+	font-family: 'Roboto Condensed', sans-serif;
+	color: #BABFD1;
+	text-align: center;
+
+	display: unset !important;
+}
+
+.progress-circle.slot__circle{
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	background: unset; 
+	height: 213px; 
+	width: 213px; 
+	border-radius: unset;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+.loader {
+	height: 100vh;
+	width: 100%;
+    /* font-family: "EurostileLTStd-BoldEx2", "Roboto", sans-serif; */
+    font-family: unset !important;
+    font-size: 20px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    color: var(--color);
+	margin: 0 auto;
+	position: absolute;
+	z-index: 40;
+	top: 0;
+	left: 0;
+	background: #000000 url(../images/loadBg.png) no-repeat center center !important;
+	background-size: 597px 226px !important;   
+}
+
+.loader-content > img{
+    width: 100%;
+    max-width: unset;
+}
+
+
+/* setting bars */
+.e3ds_bottom_panel{
+    flex-direction: column;
+    height: unset;
+}
+
+.panelInput__div.show__panelDiv{
+    height: 48px;
+    width: 100%;
+    padding: 0 17.5px;
+    background: #000;
+    opacity: 0.7;
+    border-radius: 10px;
+}
+
+.e3ds_bottom_panel .panelInput__div #Volumebar{
+    height: 100%;
+    width: 100%;
+}
+
+.e3ds_bottom_panel .panelBtn__div{
+    height: 48px;
+    overflow: hidden;
+}
+
+.e3ds_bottom_panel_controls > button{
+    background: #000 ;
+    opacity: 0.7;
+}
+
+.e3ds_bottom_panel_controls{
+    background: unset;
+}
+
+@media screen and (max-width: 575px) {
+    .e3ds_bottom_panel .panelBtn__div{
+        height: 40px;
+    }
+
+    .panelInput__div.show__panelDiv{
+        height: 40px;
+    }
+}
+
+/* Toast Notification css start here */
+.tmp-container{
+    font-size: 14px;
+    line-height: 29px;
+    z-index: 999;
+
+    padding: 12px 14px 19px 25px;
+
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    width: 423px;
+}
+
+div[class^=e3ds_alert]{
+    box-shadow: unset !important;
+    background: #00000070 !important;
+
+}

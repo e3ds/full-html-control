@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Something went wrong</title>
+</head>
+<body style="text-align: center">
+    <h1>Something went wrong!</h1>
+    <img style="width: 50%;" src="https://test-upload-app.s3.amazonaws.com/failed.jpg" alt="Failed"/>
+    <h3>Eagle 3D Streaming Server is facing some issues. Please report this error in business@eagle3dstreaming.com.</h3>
+<script>
+    const msg = `Someone failed to access the following URL and faced NGINX 502 Error\n\n **${window.location.href}**`;
+	fetch("https://notifications.eagle3dstreaming.com/message_sent", {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: `{
+		"input_chat_id": -1001587349178,
+		"message": ${JSON.stringify(msg)}
+	}`});
+</script>
+</body>
+</html>
