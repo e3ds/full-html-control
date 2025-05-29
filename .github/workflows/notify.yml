@@ -1,0 +1,18 @@
+name: Notify-Telegram-via-Bot
+on:
+  push:
+    branches:
+      - '*'
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify on telegram
+        run: |
+          curl --request POST \
+            --url https://notifications.eagle3dstreaming.com/message_sent \
+            --header 'Content-Type: application/json' \
+            --data '{
+              "input_chat_id": -4230969745,
+              "message": "New update pushed in ${{ github.event.repository.name }} under branch ${{ github.ref }} with commit message: ${{ github.event.head_commit.message }} by ${{ github.event.head_commit.author.name }} (${{ github.event.head_commit.author.email }})"
+          }'
