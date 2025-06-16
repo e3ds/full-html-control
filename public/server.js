@@ -7,8 +7,8 @@ const port = 3000;
 
 
 const tokenExpiryDuration = 60000
-// Replace this with your API key
-const apiKey = "Your streaming api Key"  // collect from https://account.eagle3dstreaming.com/api-keys-management
+// Replace this with your streaming API key
+const apiKey = "Your streaming api Key"
 // Replace this with your username
 var clientUserName = "Your username";
 var streamingAppInfo = {
@@ -34,7 +34,7 @@ app.get('/index.html', (req, res) => {
 
 // Serve the modified index.html
 function serveIndexHtml(res) {
-    fetch("https://token.eaglepixelstreaming.com/api/v1/token/create", {
+    fetch("https://token.eagle3dstreaming.com/api/v1/token/create", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
