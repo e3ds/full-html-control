@@ -133,7 +133,7 @@ e3ds_controller.callbacks.onHtmlBind = function () {
 window.onload = async function(){
     
 
-    const streamingApiKey= "your streaming api key";//collect your streaming api key from here https://account.eagle3dstreaming.com/streaming-api-keys-management
+    const streamingApiKey= "your streaming api key";
     const domain= "connector.eagle3dstreaming.com";
     const tokenExpiryDuration= 60000;
     const clientUserName= "your username";
@@ -142,7 +142,7 @@ window.onload = async function(){
 
 
     fetch(
-        "https://token.eaglepixelstreaming.com/api/v1/token/create",
+        "https://token.eagle3dstreaming.com/api/v1/token/create",
         {
             method: "POST",
             body: JSON.stringify({
