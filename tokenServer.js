@@ -1,4 +1,4 @@
-const apiKey = "your streaming api key"  // collect from https://account.eagle3dstreaming.com/streaming-api-keys-management 
+const apiKey = "your streaming api key"
 const tokenExpiryDuration = 60000
 var clientUserName = "your user name";
 var streamingAppInfo = 
@@ -18,7 +18,7 @@ function GenerateStreamingSessionToken(res,indexCP_dist=false, appName, configur
 	const axios = require("axios");	
 	
 	axios.post(
-				"https://token.eaglepixelstreaming.com/api/v1/token/create", 
+				"https://token.eagle3dstreaming.com/api/v1/token/create", 
 				{
 					"object" : streamingAppInfo,
 					"expiry": tokenExpiryDuration,
